@@ -1,6 +1,8 @@
-import 'package:expense_tracker/pages/splash_screen/view/splash_screen_page.dart';
+import 'package:expense_tracker/constants/color_settings/color_settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+
+import 'pages/splash_screen/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,7 +26,20 @@ class MyApp extends StatelessWidget {
       ],
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        textButtonTheme: TextButtonThemeData(
+          style: ButtonStyle(
+            foregroundColor: MaterialStateProperty.all(
+              ColorSettings.textColor,
+            ),
+          ),
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all(
+              Colors.white,
+            ),
+          ),
+        ),
         useMaterial3: true,
       ),
       home: const SplashScreenPage(),
